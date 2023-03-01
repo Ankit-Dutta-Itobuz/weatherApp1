@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body
+    style="
+      display: flex;
+      flex-direction: column;
+      row-gap: 80px;
+      align-items: center;
+      background-color: blue;
+    "
+  >
+    <section>
+      <div style="padding-top:30px ; text-align: center; color: aliceblue; font-size: 40px;" id="city">ABC</div>
+    </section>
+    <section>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          column-gap: 50px;
+          font-size: 80px;
+          color: aliceblue;
+        "
+        class="weatherIcon"
+      >
+        <div id="logo">Sunny</div>
+        <span id="temperature">72</span>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 150px;
+          row-gap: 80px;
+          font-size: 30px;
+          color: aliceblue;
+        "
+      >
+       <div class="feelsBox" style="opacity: 0.6; display: flex; column-gap: 10px;">
+        <div >Feels</div>
+        <div id="tempFeels">Feels 69</div>
+       </div>
+        <div id="weatherInfoText" style="opacity: 0.7; text-align: center;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus ipsam dolor aliquam sed quam quos aut incidunt,</div>
+      </div>
+    </section>
+
+    <script>
+      async function getWeatherData() {
+        const response = fetch(
+          "http://api.weatherapi.com/v1/current.json?key=0c80b2b56f1943ada19100744230103&q=London&aqi=no"
+        )
+          .then(function (res) {
+            return res.json();
+          })
+          .then(function (data) {
+            console.log(data)
+            document.getElementById('city').innerHTML=data.location.name;
+            document.getElementById('temperature').innerHTML=data.current.temp_f;
+            document.getElementById('logo').innerHTML=data.current.condition;
+            document.getElementById('tempFeels').innerHTML=data.current.feelslike_f;
+           
+
+
+
+          });
+      }
+      getWeatherData();
+    </script>
+  </body>
+</html>
