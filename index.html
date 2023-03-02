@@ -4,33 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/style/styleSheet.css" />
   </head>
 
   <body>
-    <section class="container">
-      <div id="city">XYZ</div>
-      <div id="tempContainer">
-        <div id="tempLogo">
-          <img src="" alt="image not found" id="logo" />
-          <div id="weatherText">Abc</div>
-        </div>
-
-        <div id="tempBox">
-          <span id="temperature">72</span>
-          <div class="feelsBox">
-            <div class="feels">Feels</div>
-            <div id="tempFeels">69</div>
+    <section class="bodyFlexBox">
+      <img class="topIcons" src="./image/upload-icon.svg" alt="img not found">
+      <div class="container">
+        <input id="city" type="text" placeholder="|"/>
+        <div id="tempContainer">
+            <img src="./image/weather.png" alt="image not found" id="logo" />
+            <div id="tempBox">
+            <div id="temperature">26<sup style="font-size: 36px;">&deg</sup></div>
+            <div class="feelsBox">
+              <div class="feels">Feels</div>
+              <div id="tempFeels">30<sup style="font-size: 20px;">&deg</sup></div>
+            </div>
           </div>
         </div>
+        <div id="weatherInfoText">
+         Make the most of this nice weather <br> that I generated for you. Or else
+        </div>
       </div>
-      <div id="weatherInfoText">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus
-        ipsam dolor aliquam sed quam quos aut incidunt,
-      </div>
+      <img class="topIcons" src="./image/notification.svg" alt="img not found">
     </section>
-
-    <script src="script.js"></script>
+  <script src="/script/main.js"></script>
   </body>
 </html>
