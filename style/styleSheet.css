@@ -23,7 +23,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  row-gap: 50px;
+  /* row-gap: 50px; */
   color: rgb(255, 255, 255);
 }
 
@@ -81,3 +81,32 @@ body {
   text-align: center;
   font-size: 30px;
 }
+
+/* Drop Down */
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(86, 86, 86);
+  font-size: 30px;
+}
+
+.dropDownContent {
+  align-self: center;
+  width: 400px;
+  height: 150px;
+  overflow-y: scroll;
+  background-color: rgba(255, 255, 255, 0.350);
+  border-radius: 30px;
+
+}
+
+.show {
+  visibility: hidden;
+}
+
+
+

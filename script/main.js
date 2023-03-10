@@ -8,6 +8,25 @@ document.getElementById("city").addEventListener("keyup", function (event) {
   }
 });
 
+// Drop Down
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+const dropValue = document.getElementsByClassName('dropValue');
+for(let i=0; i<dropValue.length;i++)
+{
+  dropValue[i].addEventListener('click',function(){
+    country=dropValue[i].innerHTML;
+    document.getElementById("city").value=country;
+    getWeatherData();
+  })
+}
+
+
 async function getWeatherData() {
   const response = fetch(
     `http://api.weatherapi.com/v1/current.json?key=0c80b2b56f1943ada19100744230103&q=${country}&aqi=no`
@@ -30,3 +49,5 @@ async function getWeatherData() {
       else if (data.current.is_day == 0) icon.src = "./image/night.svg";
     });
 }
+
+
