@@ -7,15 +7,15 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="/style/styleSheet.css" />
   </head>
-
   <body>
     <section class="bodyFlexBox">
       <img class="topIcons" src="./image/upload-icon.svg" alt="img not found">
       <div class="container">
         <input onclick="myFunction()" id="city" type="text" placeholder="|"/>
         <!-- Drop Down -->
-        <ul id="myDropdown" class="dropDownContent">
+        <ul id="myDropdown" onclick="myFunction()" class="dropDownContent">
           <li><a href="#" class="dropValue">Kolkata</a></li>
+          <li><a href="#" class="dropValue">Darjeeling</a></li>
           <li><a href="#" class="dropValue">New Delhi</a></li>
           <li><a href="#" class="dropValue">London</a></li>
           <li><a href="#" class="dropValue">New York</a></li>
