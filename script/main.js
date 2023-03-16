@@ -28,26 +28,32 @@ for(let i=0; i<dropValue.length;i++)
 
 
 async function getWeatherData() {
-  const response = fetch(
-    `http://api.weatherapi.com/v1/current.json?key=0c80b2b56f1943ada19100744230103&q=${country}&aqi=no`
+  const response =await fetch(
+    // `http://api.weatherapi.com/v1/current.json?key=0c80b2b56f1943ada19100744230103&q=${country}&aqi=no`
+    `http://localhost:8000/`
   )
     .then(function (res) {
       return res.json();
     })
+    
     .then(function (data) {
       console.log(data);
-
-      document.getElementById(
-        "temperature"
-      ).innerHTML = `${data.current.temp_c} <sup style="font-size: 36px;">&deg</sup>`;
-      document.getElementById(
-        "tempFeels"
-      ).innerHTML = `${data.current.feelslike_c} <sup style="font-size: 20px;">&deg</sup>`;
+      
+      for(let i=0;i<data.length;i++){
+        if(data[i].location === country){
+          console.log(country);
+          console.log(data[i].location);
+          document.getElementById("temperature").innerHTML = `${data[i].tempC} <sup style="font-size: 36px;">&deg</sup>`;
+          document.getElementById("tempFeels").innerHTML = `${data[i].feelsLike} <sup style="font-size: 20px;">&deg</sup>`;
+        }
+      }
+      
     
-      logo.src = `${data.current.condition.icon}`;
-      if (data.current.is_day == 1) icon.src = "./image/day.svg";
-      else if (data.current.is_day == 0) icon.src = "./image/night.svg";
+      // logo.src = `${data.current.condition.icon}`;
+      // if (data.current.is_day == 1) icon.src = "./image/day.svg";
+      // else if (data.current.is_day == 0) icon.src = "./image/night.svg";
     });
+    // console.log("response",response);
 }
 
 
