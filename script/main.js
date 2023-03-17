@@ -30,7 +30,7 @@ for(let i=0; i<dropValue.length;i++)
 async function getWeatherData() {
   const response =await fetch(
     // `http://api.weatherapi.com/v1/current.json?key=0c80b2b56f1943ada19100744230103&q=${country}&aqi=no`
-    `http://localhost:8000/`
+    `http://localhost:7000/`
   )
     .then(function (res) {
       return res.json();
@@ -43,15 +43,17 @@ async function getWeatherData() {
         if(data[i].location === country){
           console.log(country);
           console.log(data[i].location);
-          document.getElementById("temperature").innerHTML = `${data[i].tempC} <sup style="font-size: 36px;">&deg</sup>`;
-          document.getElementById("tempFeels").innerHTML = `${data[i].feelsLike} <sup style="font-size: 20px;">&deg</sup>`;
+          if (data[i].condition == 1) icon.src = "./image/day.svg";
+          else if (data[i].condition == 0) icon.src = "./image/night.svg";
+          document.getElementById("temperature").innerHTML = `${data[i].tempC} <sup style="font-size: 36px;">&deg</sup>C`;
+          document.getElementById("tempFeels").innerHTML = `${data[i].feelsLike} <sup style="font-size: 20px;">&deg</sup>C`;
         }
       }
       
-    
-      // logo.src = `${data.current.condition.icon}`;
-      // if (data.current.is_day == 1) icon.src = "./image/day.svg";
-      // else if (data.current.is_day == 0) icon.src = "./image/night.svg";
+    // console.log(data);
+    //   logo.src = `${data.condition.icon}`;
+    //   if (data.condition == 1) icon.src = "./image/day.svg";
+    //   else if (data.condition == 0) icon.src = "./image/night.svg";
     });
     // console.log("response",response);
 }
