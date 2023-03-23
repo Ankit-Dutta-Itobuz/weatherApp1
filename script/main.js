@@ -1,13 +1,5 @@
-let country;
+let cityName;
 const icon = document.getElementById("logo");
-document.getElementById("city").addEventListener("keyup", function (event) {
-  event.preventDefault();
-  if (event.code === "Enter") {
-    country = document.getElementById("city").value;
-    getWeatherData();
-  }
-});
-
 // Drop Down
 
 /* When the user clicks on the button,
@@ -20,8 +12,8 @@ const dropValue = document.getElementsByClassName('dropValue');
 for(let i = 0; i<dropValue.length; i++)
 {
   dropValue[i].addEventListener('click',function(){
-    country = dropValue[i].innerHTML;
-    document.getElementById("city").value=country;
+    cityName = dropValue[i].innerHTML;
+    document.getElementById("city").value=cityName;
     getWeatherData();
   })
 }
@@ -40,8 +32,8 @@ async function getWeatherData() {
       console.log(data);
       
       for(let i = 0; i<data.length; i++){
-        if(data[i].location === country){
-          console.log(country);
+        if(data[i].location === cityName){
+          console.log(cityName);
           console.log(data[i].location);
           if (data[i].condition === 1) icon.src = "./image/day.svg";
           else if (data[i].condition === 0) icon.src = "./image/night.svg";
@@ -50,12 +42,6 @@ async function getWeatherData() {
         }
       }
       
-    // console.log(data);
-    //   logo.src = `${data.condition.icon}`;
-    //   if (data.condition == 1) icon.src = "./image/day.svg";
-    //   else if (data.condition == 0) icon.src = "./image/night.svg";
     });
-    // console.log("response",response);
 }
-
 
